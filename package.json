@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "aws-amplify": "https://github.com/dabit3/amplify-fork.git",
+    "aws-amplify": "^0.4.1",
     "buffer": "^5.1.0",
     "react": "16.3.1",
     "react-native": "0.55.4",

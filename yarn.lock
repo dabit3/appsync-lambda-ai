@@ -486,12 +486,12 @@ amazon-cognito-auth-js@^1.1.9:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/amazon-cognito-auth-js/-/amazon-cognito-auth-js-1.2.0.tgz#637f044a3a6114d6d0a87b415157ea36f32431e8"
 
-amazon-cognito-identity-js@^2.0.0:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.5.tgz#73182716e8b4b468f7b10597adc8b35d73059df1"
+amazon-cognito-identity-js@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.6.tgz#a98ab8df96e3f0205e0ddad5c75360fdfcd45e5b"
   dependencies:
     buffer "4.9.1"
-    crypto-browserify "3.0.0"
+    crypto-browserify "1.0.9"
     js-cookie "^2.1.4"
 
 amdefine@>=0.0.4:
@@ -697,14 +697,14 @@ atob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
 
-"aws-amplify@https://github.com/dabit3/amplify-fork.git":
-  version "0.4.0"
-  resolved "https://github.com/dabit3/amplify-fork.git#914c4f344ef1b3268b7bc76ab4229c8336290560"
+aws-amplify@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-0.4.1.tgz#e3b2d2a3496133a69550f56c0ada191acbbe3d7a"
   dependencies:
     "@types/paho-mqtt" "^1.0.3"
     "@types/zen-observable" "^0.5.3"
     amazon-cognito-auth-js "^1.1.9"
-    amazon-cognito-identity-js "^2.0.0"
+    amazon-cognito-identity-js "^2.0.6"
     aws-sdk "2.198.0"
     axios "^0.17.0"
     graphql "0.13.0"
@@ -1363,7 +1363,7 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
-base64-js@0.0.8, base64-js@~0.0.4:
+base64-js@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.8.tgz#1101e9544f4a76b1bc3b26d452ca96d7a35e7978"
 
@@ -1491,13 +1491,6 @@ buffer@^5.1.0:
   dependencies:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
-
-buffer@~2.3.2:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-2.3.4.tgz#7e4af5a23c15e13fcbfd5c5a1ec974cb61668a4c"
-  dependencies:
-    base64-js "~0.0.4"
-    ieee754 "~1.1.1"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -1771,12 +1764,9 @@ cryptiles@3.x.x:
   dependencies:
     boom "5.x.x"
 
-crypto-browserify@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-3.0.0.tgz#5d42e013137c658bcc74de792d2d96268aeaa883"
-  dependencies:
-    ripemd160 "0.2.0"
-    sha.js "2.1.6"
+crypto-browserify@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-1.0.9.tgz#cc5449685dfb85eb11c9828acc7cb87ab5bbfcc0"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.2"
@@ -2579,7 +2569,7 @@ iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-ieee754@^1.1.4, ieee754@~1.1.1:
+ieee754@^1.1.4:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.11.tgz#c16384ffe00f5b7835824e67b6f2bd44a5229455"
 
@@ -4700,10 +4690,6 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
-ripemd160@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-0.2.0.tgz#2bf198bde167cacfa51c0a928e84b68bbe171fce"
-
 rsvp@^3.3.3:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
@@ -4841,12 +4827,6 @@ setimmediate@^1.0.5:
 setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
-
-sha.js@2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.1.6.tgz#20e6eb81f3e66f081ddf84dd8f0464bea6c02fd4"
-  dependencies:
-    buffer "~2.3.2"
 
 shebang-command@^1.2.0:
   version "1.2.0"
