@@ -35,10 +35,6 @@ awsmobile user-files enable
 awsmobile push
 ```
 
-5. Add AppSync configuration to the project   
-
-_This will be described in the next section_
-
 ### Setting up the Lambda function
 
 1. In the AWS dashboard, go to the [Lambda console](https://console.aws.amazon.com/lambda/)
@@ -81,7 +77,7 @@ type TranslatedSentence {
 
 3. Create a lambda function data source   
 - Click __Data Sources__
-- Click __NEW_
+- Click __NEW__
 - Give the data source a name, choose __AWS Lambda Function__ as the Data source type
 - For the region, choose the region where you created the Lamba function
 - For the Function ARN, choose the Lambda function you would like to use
@@ -92,3 +88,18 @@ type TranslatedSentence {
 - On the Right (under Data Types), click on __Attach__ next to the `getTranslatedSentence` field.
 - For the Data Source name, choose the new data source we just created
 - Click __Save__
+
+5. Add AppSync configuration to the project   
+
+Next, we ned to add some more configuration to the `aws-exports.js` file to specify our AppSync configuration. In `aws-exports.js`, add the following lines of configuration:
+
+```js
+const awsmobile = {
+  // omitting preexisint configuration
+  // add the following:
+  'aws_appsync_graphqlEndpoint': 'https://xxxxxx.appsync-api.us-east-1.amazonaws.com/graphql',
+  'aws_appsync_region': 'us-east-1',
+  'aws_appsync_authenticationType': 'API_KEY',
+  'aws_appsync_apiKey': 'da2-xxxxxxxxxxxxxxxxxxxxxxxxxx',
+}
+```
