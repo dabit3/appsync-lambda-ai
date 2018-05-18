@@ -5,4 +5,4 @@ const awsmobile = {
     'aws_appsync_apiKey': 'YOURAPIKEY'
 }
 
-export default awsmobile;
+export default awsmobile
