@@ -27,6 +27,12 @@ yarn || npm install
 
 2. Give the bucket a name and choose defaults for all other options
 
+3. Update line 46 in App.js to use the bucket name you just created (replace `YOURBUCKETNAME`):
+
+```js
+const mp3Url = `https://s3.amazonaws.com/YOURBUCKETNAME/${sentence}`
+```
+
 ### Setting up the Lambda function
 
 1. In the AWS dashboard, go to the [Lambda console](https://console.aws.amazon.com/lambda/)
