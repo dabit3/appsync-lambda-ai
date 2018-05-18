@@ -1,16 +1,15 @@
 var AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-1'})
 const uuidV4 = require('uuid/v4')
+var translate = new AWS.Translate();
+var polly = new AWS.Polly();
+var s3 = new AWS.S3({
+  params: {
+    Bucket: 'YOURBUCKETNAME',
+  }
+})
 
 exports.handler = (event, context, callback) => {
-  var translate = new AWS.Translate();
-  var polly = new AWS.Polly();
-  var s3 = new AWS.S3({
-    params: {
-      Bucket: 'rntranslate-userfiles-mobilehub-1492407502/public',
-    }
-  })
-
   // Step 1: translate the text
   let message = ''
   var translateParams = {

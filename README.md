@@ -19,6 +19,12 @@ cd appsync-lambda-ai
 yarn || npm install
 ```
 
+### Creating an S3 bucket
+
+1. Visit [https://s3.console.aws.amazon.com/](https://s3.console.aws.amazon.com/) and click __Create bucket__
+
+2. Give the bucket a name and choose defaults for all other options
+
 ### Setting up the Lambda function
 
 1. In the AWS dashboard, go to the [Lambda console](https://console.aws.amazon.com/lambda/)
@@ -35,7 +41,9 @@ yarn || npm install
 - AmazonPollyFullAccess
 - TranslateReadOnly
 
-6. Finally, we need to add the actual lambda function we will be running! In the _lambda_ folder of this project, there is a lambda function (index.js) & a package.json file. In this directory, install the dependencies and then zip the folder into a zip file using the following command:
+6. Next, we need to update and add the actual lambda function we will be running! In the _lambda_ folder of this project, there is a lambda function (index.js) & a package.json file. In `lambda/index.js` on line 8, replace `YOURBUCKETNAME` with the bucket name you used when you created the S3 bucket.
+
+7. Finally, from within the lambda directory install the dependencies and then zip the folder into a zip file using the following command:
 
 ```bash
 zip -r ../translate.zip *
