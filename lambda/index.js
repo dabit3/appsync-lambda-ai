@@ -1,9 +1,9 @@
-var AWS = require('aws-sdk')
+const AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-1'})
 const uuidV4 = require('uuid/v4')
-var translate = new AWS.Translate();
-var polly = new AWS.Polly();
-var s3 = new AWS.S3({
+const translate = new AWS.Translate();
+const polly = new AWS.Polly();
+const s3 = new AWS.S3({
   params: {
     Bucket: 'YOURBUCKETNAME',
   }
@@ -12,7 +12,7 @@ var s3 = new AWS.S3({
 exports.handler = (event, context, callback) => {
   // Step 1: translate the text
   let message = ''
-  var translateParams = {
+  const translateParams = {
     SourceLanguageCode: 'en',
     TargetLanguageCode: event.code,
     Text: event.sentence
@@ -32,7 +32,7 @@ exports.handler = (event, context, callback) => {
 
     const voice = voices[event.code]
 
-    var pollyParams = {
+    const pollyParams = {
       OutputFormat: "mp3", 
       SampleRate: "8000", 
       Text: message,
@@ -45,7 +45,7 @@ exports.handler = (event, context, callback) => {
       if (err) console.log(err, err.stack); // an error occurred
       else  {
         let key = uuidV4()
-        var params2 = {
+        const params2 = {
           Key: key,
           ContentType: 'audio/mpeg',
           Body: data.AudioStream,
