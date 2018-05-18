@@ -1,0 +1,30 @@
+{
+  "name": "RNTranslate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^2.0.5",
+    "aws-amplify": "^0.4.0",
+    "aws-amplify-react-native": "^0.2.11",
+    "buffer": "^5.1.0",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-elements": "^0.19.1",
+    "react-native-sound": "^0.10.9",
+    "react-native-vector-icons": "^4.6.0",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
