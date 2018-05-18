@@ -61,11 +61,11 @@ Upload the zip file to Lambda as the function code and click __Save__
 
 ```
 type Query {
-	getTranslatedSentence(sentence: String!, code: String!): TranslatedSentence
+  getTranslatedSentence(sentence: String!, code: String!): TranslatedSentence
 }
 
 type TranslatedSentence {
-	sentence: String!
+  sentence: String!
 }
 ```
 
