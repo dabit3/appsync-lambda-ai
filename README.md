@@ -76,7 +76,7 @@ type TranslatedSentence {
 - For the Role, choose __New Role__
 
 4. Add a resolver to the __getTranslatedSentence__ query.   
-- Click on Scheme in the left menu
+- Click on Schema in the left menu
 - On the Right (under Data Types), click on __Attach__ next to the `getTranslatedSentence` field.
 - For the Data Source name, choose the new data source we just created
 - Click __Save__
