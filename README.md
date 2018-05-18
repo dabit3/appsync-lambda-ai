@@ -83,12 +83,10 @@ type TranslatedSentence {
 
 5. Add AppSync configuration to the project   
 
-Next, we ned to add some more configuration to the `aws-exports.js` file to specify our AppSync configuration. In `aws-exports.js`, add the following lines of configuration:
+Next, we need to edit the aws-exports.js file to specify our AppSync configuration. In the root directory of the React Native project, update aws-exports.js with your AppSync credentials:
 
 ```js
 const awsmobile = {
-  // omitting preexisint configuration
-  // add the following:
   'aws_appsync_graphqlEndpoint': 'https://xxxxxx.appsync-api.us-east-1.amazonaws.com/graphql',
   'aws_appsync_region': 'us-east-1',
   'aws_appsync_authenticationType': 'API_KEY',
