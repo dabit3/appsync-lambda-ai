@@ -27,7 +27,8 @@ export default class App extends Component {
     index: 0,
     codes,
     sentence: '',
-    mp3Url: ''
+    mp3Url: '',
+    loading: false
   }
   updateIndex = index => {
     this.setState({ index })
@@ -39,12 +40,14 @@ export default class App extends Component {
     if (this.state.sentence === '') return
     const code = codes[this.state.index].code
     try {
+      this.setState({ loading: true })
       const translation = await API.graphql(graphqlOperation(query, { sentence: this.state.sentence, code: code }))
       const { sentence } = translation.data.getTranslatedSentence
       const mp3Url = `https://s3.amazonaws.com/rntranslate-userfiles-mobilehub-1492407502/public/${sentence}`
-      this.setState({ mp3Url })
+      this.setState({ mp3Url, loading: false })
     } catch (error) {
       console.log('error translating : ', error)
+      this.setState({ loading: false })
     }
   }
   playSound = () => {
@@ -85,13 +88,14 @@ export default class App extends Component {
           onPress={this.translate}
           backgroundColor='#1E88E5'
           title="TRANSLATE"
+          loading={this.state.loading}
         />
         {
          this.state.mp3Url !== '' && (
           <Button
             onPress={this.playSound}
             backgroundColor='#1E88E5'
-            title="Play Translation"
+            title="Play Recording"
             style={{ marginTop: 10 }}
           />
          )

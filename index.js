@@ -7,4 +7,6 @@ import config from './aws-exports'
 
 Amplify.configure(config)
 
+console.ignoredYellowBox = ['Remote', '{"[WARN]']
+
 AppRegistry.registerComponent('RNTranslate', () => App);

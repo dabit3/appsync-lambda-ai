@@ -7,9 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "amazon-cognito-identity-js": "^2.0.5",
-    "aws-amplify": "^0.4.0",
-    "aws-amplify-react-native": "^0.2.11",
+    "aws-amplify": "https://github.com/dabit3/amplify-fork.git",
     "buffer": "^5.1.0",
     "react": "16.3.1",
     "react-native": "0.55.4",

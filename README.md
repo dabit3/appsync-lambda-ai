@@ -19,22 +19,6 @@ cd appsync-lambda-ai
 yarn || npm install
 ```
 
-3. Add your AWS resources using the AWS Mobile CLI   
-
-```bash
-awsmobile init
-```
-
-_answer default to all questions_
-
-4. Add cognito & Amazon S3 to the project      
-
-```bash
-awsmobile user-signin enable
-awsmobile user-files enable
-awsmobile push
-```
-
 ### Setting up the Lambda function
 
 1. In the AWS dashboard, go to the [Lambda console](https://console.aws.amazon.com/lambda/)
