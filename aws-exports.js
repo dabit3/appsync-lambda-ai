@@ -1,4 +1,3 @@
-// AWS Mobile Hub Project Constants
 const awsmobile = {
     'aws_appsync_graphqlEndpoint': 'YOURENDPOINT',
     'aws_appsync_region': 'YOURREGION',
