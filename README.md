@@ -2,7 +2,7 @@
 
 This app demonstrates how you can use a Lambda function as an AWS AppSync datasource to perform really cool operations and return the result in a GraphQL query. In this example, we build an app that allows someone to put the text they would like to translate into the app, the app then returns the translation into voice for the user to play back.
 
-![](https://imgur.com/iO3XWRO.jpg)
+![](https://s3.amazonaws.com/aws-mobile-hub-images/lambda_appsync.jpeg)
 
 ## Getting Started
 
