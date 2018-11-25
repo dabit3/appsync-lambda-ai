@@ -1,11 +1,11 @@
 const AWS = require('aws-sdk')
-AWS.config.update({region: 'us-east-1'})
+AWS.config.update({region: '{REGION}'})
 const uuidV4 = require('uuid/v4')
 const translate = new AWS.Translate();
 const polly = new AWS.Polly();
 const s3 = new AWS.S3({
   params: {
-    Bucket: 'YOURBUCKETNAME',
+    Bucket: '{YOURBUCKETNAME}',
   }
 })
 
@@ -21,6 +21,7 @@ exports.handler = (event, context, callback) => {
   translate.translateText(translateParams, function (err, data) {
     if (err) callback(err)
     message = data.TranslatedText
+    console.log('message =' + message)
 
     const voices = {
       'es': 'Penelope',
@@ -51,11 +52,13 @@ exports.handler = (event, context, callback) => {
           Body: data.AudioStream,
           ACL: 'public-read'
         };
+        // step 3: Upload the synthesized speech to S3
         s3.putObject(params2, function(err, data) {
           if (err) {
             callback('error putting item: ', err)
           } else {
-            callback(null, { sentence: key })
+          	// Return as a response the s3 key that holds the sound and the translated text.
+            callback(null, { sentence: key, translatedText: pollyParams.Text})
           }
         });
       }
