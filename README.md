@@ -27,10 +27,10 @@ yarn || npm install
 
 2. Give the bucket a name and choose defaults for all other options
 
-3. Update line 46 in App.js to use the bucket name you just created (replace `YOURBUCKETNAME`):
+3. Update line 46 in App.js to use the bucket name you just created (replace `YOURBUCKETNAME` and `REGION`):
 
 ```js
-const mp3Url = `https://s3.amazonaws.com/YOURBUCKETNAME/${sentence}`
+const mp3Url = `https://s3-REGION.amazonaws.com/YOURBUCKETNAME/${sentence}`
 ```
 
 ### Setting up the Lambda function
@@ -49,7 +49,7 @@ const mp3Url = `https://s3.amazonaws.com/YOURBUCKETNAME/${sentence}`
 - AmazonPollyFullAccess
 - TranslateReadOnly
 
-6. Next, we need to update and add the actual lambda function we will be running! In the _lambda_ folder of this project, there is a lambda function (index.js) & a package.json file. In `lambda/index.js` on line 8, replace `YOURBUCKETNAME` with the bucket name you used when you created the S3 bucket.
+6. Next, we need to update and add the actual lambda function we will be running! In the _lambda_ folder of this project, there is a lambda function (index.js) & a package.json file. In `lambda/index.js` on line 8, replace `YOURBUCKETNAME` with the bucket name you used when you created the S3 bucket  and the `REGION` where this project lives.
 
 7. Finally, from within the lambda directory install the dependencies and then zip the folder into a zip file using the following command:
 

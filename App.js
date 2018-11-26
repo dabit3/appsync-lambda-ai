@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  Text,
   View,
   TextInput
 } from 'react-native';
 
 import { ButtonGroup, Button } from 'react-native-elements'
 import { API, graphqlOperation } from 'aws-amplify'
+
 var Sound = require('react-native-sound')
 Sound.setCategory('Playback')
 
@@ -17,9 +16,9 @@ import query from './query'
 
 const buttons = [
   'French',
-  'German',
   'Portugese',
-  'Spanish'
+  'Spanish',
+  'German'
 ]
 
 export default class App extends Component {
@@ -27,6 +26,7 @@ export default class App extends Component {
     index: 0,
     codes,
     sentence: '',
+    translatedText: '',
     mp3Url: '',
     loading: false
   }
@@ -43,8 +43,13 @@ export default class App extends Component {
       this.setState({ loading: true })
       const translation = await API.graphql(graphqlOperation(query, { sentence: this.state.sentence, code: code }))
       const { sentence } = translation.data.getTranslatedSentence
-      const mp3Url = `https://s3.amazonaws.com/YOURBUCKETNAME/${sentence}`
-      this.setState({ mp3Url, loading: false })
+      const { translatedText } = translation.data.getTranslatedSentence
+      const mp3Url = `https://s3-{REGION}.amazonaws.com/{YOURBUCKETNAME}/${sentence}`
+
+      this.setState({ mp3Url})
+      this.setState({ translatedText })
+      await this.playSound()
+      this.setState({loading: false})
     } catch (error) {
       console.log('error translating : ', error)
       this.setState({ loading: false })
@@ -56,11 +61,11 @@ export default class App extends Component {
         console.log('failed to load the sound', error);
         return;
       }
+
       console.log('duration in seconds: ' + translate.getDuration() + 'number of channels: ' + translate.getNumberOfChannels());
       translate.play((success) => {
         if (success) {
           console.log('successfully finished playing');
-          this.setState({ sentence: '' })
         } else {
           console.log('playback failed due to audio decoding errors');
           translate.reset();
@@ -84,22 +89,19 @@ export default class App extends Component {
           value={this.state.sentence}
           placeholder='Text to translate'
         />
+        <TextInput
+          editable={false}
+          multiline
+          style={styles.input}
+          value={this.state.translatedText}
+          placeholder=''
+        />
         <Button
           onPress={this.translate}
           backgroundColor='#1E88E5'
-          title="TRANSLATE"
+          title="Translate"
           loading={this.state.loading}
         />
-        {
-         this.state.mp3Url !== '' && (
-          <Button
-            onPress={this.playSound}
-            backgroundColor='#1E88E5'
-            title="Play Recording"
-            style={{ marginTop: 10 }}
-          />
-         )
-        }
       </View>
     );
   }
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 10,
     backgroundColor: '#ededed',
-    height: 300,
+    height: 200,
     margin: 10,
     fontSize: 16,
     marginTop: 5
