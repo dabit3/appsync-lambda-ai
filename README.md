@@ -39,7 +39,7 @@ const mp3Url = `https://s3-REGION.amazonaws.com/YOURBUCKETNAME/${sentence}`
 
 2. Create a new function by clicking on __Create Function__
 
-3. Give the function a name, choose the runtime as Node.js 8.10, choose __Create a custom role__ for the role, give the role a name of __lambda_ai_role__ & click __Allow__.
+3. Give the function a name, choose the runtime as Node.js 12.x, choose __Create a custom role__ for the role, give the role a name of __lambda_ai_role__ & click __Allow__.
 
 4. Click __Create Function__   
 
